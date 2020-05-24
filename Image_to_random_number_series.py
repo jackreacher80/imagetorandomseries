@@ -18,14 +18,16 @@ from simpleimage import SimpleImage
 
 def main():
     """This is how we generate the seed or the first terms Xn of the random series"""
-    seed = time.time() * random.randint(0, 100)
+    seed = time.time() * random.randint(0, 1000)
+    print("The seed or first term of the series Xn is= " + str(seed))
+
 
 
     """We make either the user input any image of her choice or use the default image"""
     filename = get_file()
     image = SimpleImage(filename)
-    #print("*******************************************HERE IS THE IMAGE YOU CHOSE OR THE DEFAULT IMAGE********************************************************")
-    #image.show()
+    print("*******************************************HERE IS THE IMAGE YOU CHOSE OR THE DEFAULT IMAGE********************************************************")
+    image.show()
 
 
     time.sleep(5)
@@ -36,13 +38,17 @@ def main():
     """This prints the total number of pixels in the image"""
 
 
-    #print("***************************************************************************************************************************")
-    #print("************************************************THE SERIES STARTS HERE********************************************************")
+    print("***************************************************************************************************************************")
+    print("************************************************THE SERIES STARTS HERE********************************************************")
 
 
+    """Adding the seed to the series as the first term"""
+    random_number_series =[]
 
-    #random_number_series = [seed]
-    #random_number_series = random_number_series.append(imagerandom.ImageToRandom(filename, seed))
+    random_number_series = imagerandom.ImageToRandom(filename, seed)
+
+    print(random_number_series)
+
 
 
 
@@ -50,19 +56,19 @@ def main():
 
     """Passing the inputted image and seed to our function Image To Random in module imagerandom """
 
-    #print(imagerandom.ImageToRandom(filename, seed))
 
-    #print(imagerandom.ImageToRandom(filename, seed))
 
-    #print("***************************************************************************************************************************")
-    #print("************************************************THE SERIES ENDS HERE********************************************************")
+
+
+    print("***************************************************************************************************************************")
+    print("************************************************THE SERIES ENDS HERE********************************************************")
 
     time.sleep(5)
 
     """Storing the series in a new list random_series that will be used for plotting graph"""
     random_series = []
-    random_series = imagerandom.ImageToRandom(filename, seed)
-    print(random_series[0], random_series[1])
+    random_series = random_number_series
+
 
     """Creating a list for storing the pixel numbers"""
     pixel = []

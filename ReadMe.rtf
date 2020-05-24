@@ -1,0 +1,26 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2512
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh18000\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 I have created a random number generator using an image as an input. The image pixels are used in the following formula to create a random number series which is then plotted in  graph against each pixel to show a random distribution.\
+\
+The algorithm I used is called Linear Congruential Generator and the formula is as follows:-\
+\
+Xn+1 = (aXn + c) mod m\
+\
+I have used the following values for a, c and x since every pixel value is intrinsically random in nature.\
+\
+a = pixel.red\
+c= pixel.green\
+m=pixel.blue\
+\
+ Also m needs to be prime and not zero so I have checked for those conditions too.\
+\
+This is a pseudo random number generator so I have used a product of time stamp and randint to create my first term class called seed or Xn which is passed to a function called ImageToRandom for generating the series and draw_graph for drawing a graph.\
+\
+I have not used larger values for randint range because it prevents the graph from drawing a distribution but we can always use the max range upto a billion.\
+\
+}

@@ -14,8 +14,8 @@ def ImageToRandom(filename, xn):
 
 
     """This list is created to store the random numbers in the series"""
-    new_random_series = [seed]
-    print(new_random_series)
+    new_random_series = []
+
     #new_random_series= new_random_series.append(xn)
     #print(new_random_series)
     for pixel in image:
@@ -30,20 +30,19 @@ def ImageToRandom(filename, xn):
         """m needs to be prime so we use this condition to see if m is prime or not"""
         if(is_prime(m)):
             continue
-        #print("m is prime and its value is= " + str(m))
+
 
 
         """This LCG formula creates the next term but I have multiplied it by randint function again to add more randomness"""
-        xnplusone = (float(((a * xn) + c) % m))
+        xnplusone = (float(((a * xn) + c) % m)) * random.randint(0,1000000000)
 
         new_random_series.append(xnplusone)
 
 
         xn = xnplusone
 
-    #new_random_series.insert(0, seed)
-    print(new_random_series[0], new_random_series[1], new_random_series[2])
-    print("length of the series is" + str(len(new_random_series)))
+    new_random_series.insert(0, seed)
+    print(new_random_series[0], new_random_series[1])
 
     return new_random_series
 
@@ -64,17 +63,17 @@ def draw_graph(pixel, random_series):
     x = pixel
     y = random_series
 
-    #time.sleep(5)
+    time.sleep(5)
 
 
-    #print("***************************************THESE ARE THE CO-ORDINATES*************************************************************")
+    print("***************************************THESE ARE THE CO-ORDINATES*************************************************************")
 
-    #for i in range(len(random_series)):
-        #print("co-ordinates are-"+ "(" + str(x[i]) + "," + str(y[i]) + ")")
+    for i in range(len(random_series)):
+        print("co-ordinates are-"+ "(" + str(x[i]) + "," + str(y[i]) + ")")
 
     time.sleep(5)
 
-    #print("***************************************HERE IS THE GRAPH BETWEEN PIXELS AND CORRESPONDING RANDOM NUMBER****************************************************************************************************************")
+    print("***************************************HERE IS THE GRAPH BETWEEN PIXELS AND CORRESPONDING RANDOM NUMBER****************************************************************************************************************")
     plt.xlabel('pixel')
     plt.ylabel('random number')
     plt.title('pixel-random number graph!')
